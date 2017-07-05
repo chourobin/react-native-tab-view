@@ -392,7 +392,7 @@ export default class TabBar<T: Route<*>>
             {routes.map((route, i) => {
               const focused = index === i;
               const outputRange = inputRange.map(
-                inputIndex => (inputIndex === i ? 1 : 0.5),
+                inputIndex => (inputIndex === i ? 1 : 0.3),
               );
               const opacity = Animated.multiply(
                 this.state.visibility,
