@@ -15,9 +15,9 @@ import TouchableItem from './TouchableItem';
 import { SceneRendererPropType } from './TabViewPropTypes';
 import type {
   Scene,
-  SceneRendererProps,
-  Route,
-  Style,
+    SceneRendererProps,
+    Route,
+    Style,
 } from './TabViewTypeDefinitions';
 
 type IndicatorProps<T> = SceneRendererProps<T> & {
@@ -41,15 +41,15 @@ type Props<T> = SceneRendererProps<T> & {
   pressColor?: string,
   pressOpacity?: number,
   getLabelText: (scene: Scene<T>) => ?string,
-  renderLabel?: (scene: Scene<T>) => ?React.Element<any>,
-  renderIcon?: (scene: Scene<T>) => ?React.Element<any>,
-  renderBadge?: (scene: Scene<T>) => ?React.Element<any>,
-  renderIndicator?: (props: IndicatorProps<T>) => ?React.Element<any>,
-  onTabPress?: (scene: Scene<T>) => void,
-  tabStyle?: Style,
-  indicatorStyle?: Style,
-  labelStyle?: Style,
-  style?: Style,
+  renderLabel?: (scene: Scene<T>) => ?React.Element < any >,
+    renderIcon ?: (scene: Scene<T>) => ?React.Element < any >,
+    renderBadge ?: (scene: Scene<T>) => ?React.Element < any >,
+    renderIndicator ?: (props: IndicatorProps<T>) => ?React.Element < any >,
+    onTabPress ?: (scene: Scene<T>) => void,
+    tabStyle ?: Style,
+    indicatorStyle ?: Style,
+    labelStyle ?: Style,
+    style ?: Style,
 };
 
 type State = {
@@ -59,7 +59,7 @@ type State = {
 };
 
 export default class TabBar<T: Route<*>>
-  extends PureComponent<DefaultProps<T>, Props<T>, State> {
+  extends PureComponent < DefaultProps < T >, Props < T >, State > {
   static propTypes = {
     ...SceneRendererPropType,
     scrollEnabled: PropTypes.bool,
@@ -392,7 +392,7 @@ export default class TabBar<T: Route<*>>
             {routes.map((route, i) => {
               const focused = index === i;
               const outputRange = inputRange.map(
-                inputIndex => (inputIndex === i ? 1 : 0.7),
+                inputIndex => (inputIndex === i ? 1 : 0.5),
               );
               const opacity = Animated.multiply(
                 this.state.visibility,
@@ -481,13 +481,13 @@ export default class TabBar<T: Route<*>>
                     </Animated.View>
                     {badge
                       ? <Animated.View
-                          style={[
-                            styles.badge,
-                            { opacity: this.state.visibility },
-                          ]}
-                        >
-                          {badge}
-                        </Animated.View>
+                        style={[
+                          styles.badge,
+                          { opacity: this.state.visibility },
+                        ]}
+                      >
+                        {badge}
+                      </Animated.View>
                       : null}
                   </View>
                 </TouchableItem>
